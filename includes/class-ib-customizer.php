@@ -121,11 +121,16 @@ class IBCustomizer {
                                 } );
                                 <?php
                             } else {
-                                foreach ( $option_data['preview']['rules'] as $rule ) {
+                                foreach ( $option_data['preview']['rules'] as $rule_key => $rule ) {
                                     ?>
                                     api( '<?php echo $option_key; ?>', function( value ) {
                                         value.bind( function( newval ) {
-                                            $( '<?php echo $rule['selector']; ?>' ).css('<?php echo $rule['property']; ?>', newval + '<?php echo isset( $rule['unit'] ) ? $rule['unit'] : ''; ?>' );
+                                            <?php if ( $option_data['control']['type'] == 'ib-multitext' ) { ?>
+                                                var json_data = JSON.parse(newval);
+                                                $( '<?php echo $rule['selector']; ?>' ).css('<?php echo $rule['property']; ?>', json_data.<?php echo $rule_key; ?> + '<?php echo isset( $rule['unit'] ) ? $rule['unit'] : ''; ?>' );
+                                            <?php } else { ?>
+                                                $( '<?php echo $rule['selector']; ?>' ).css('<?php echo $rule['property']; ?>', newval + '<?php echo isset( $rule['unit'] ) ? $rule['unit'] : ''; ?>' );
+                                            <?php } ?>
                                         } );
                                     } );
                                     <?php
@@ -393,7 +398,7 @@ class IBCustomizer {
                 _initMultitextControl: function()
                 {
                     $( '.customize-control-ib-multitext .ib-field input' ).on('keyup change', function(){
-                        var $multitext  = $( '.customize-control-ib-multitext .ib-multitext-value' ),
+                        var $multitext  = $( this ).closest( 'label' ).find( '.ib-multitext-value' ),
                             value       = $multitext.data('value'),
                             choice      = $(this).data('key');
 
@@ -435,9 +440,9 @@ class IBCustomizer {
 
     static public function register( $customizer )
     {
-		require_once dirname(__FILE__) . '/class-ib-customizer-control.php';
+        require_once dirname( __FILE__ ) . '/class-ib-customizer-controls.php';
 
-        $panel_priority     = 1;
+        $panel_priority = 1;
 
         foreach ( self::$_panels as $panel_key => $panel_data ) {
 
