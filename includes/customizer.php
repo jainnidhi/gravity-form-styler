@@ -49,34 +49,34 @@ function gfs_register_customizer() {
 		                            'default' 		=> '',
 		                        )
 		                    ),
-							'gfs_form_font_size' => array(
-		                        'setting'    => array(
-		                            'default' => 16,
-									'sanitize_callback' => 'gfs_sanitize_integer',
-		                        ),
-		                        'control'    => array(
-		                            'type'          => 'ib-slider',
-		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the form', 'gfs' ),
-									'choices'            => array(
-		                                'min'                => 0,
-		                                'max'                => 100,
-		                                'step'                 => 1
-		                            ),
-		                            'preview'       => array(
-		                                'type'          => 'css',
-		                                'selector'      => '.gform_wrapper',
-										'property'		=> 'font-size',
-										'unit'			=> 'px'
-		                            )
-		                        )
-		                    ),
 						)
 					),
 					'gfs_form_padding_margin'	=> array(
 						'title'	=> __( 'Structure', 'gfs' ),
 						'fields'	=> array(
+							'gfs_form_font_size' => array(
+								'setting'    => array(
+									'default' => 16,
+									'sanitize_callback' => 'gfs_sanitize_integer',
+								),
+								'control'    => array(
+									'type'          => 'ib-slider',
+									'label'         => __('Font Size (px)', 'gfs'),
+									'class'			=> 'IBCustomizer_Control',
+									'description'	=> __( 'Adds font size to the form', 'gfs' ),
+									'choices'            => array(
+										'min'                => 0,
+										'max'                => 100,
+										'step'                 => 1
+									),
+									'preview'       => array(
+										'type'          => 'css',
+										'selector'      => '.gform_wrapper',
+										'property'		=> 'font-size',
+										'unit'			=> 'px'
+									)
+								)
+							),
 							'gfs_form_padding' => array(
 		                        'setting'    => array(
 									'default' => array(
@@ -107,10 +107,10 @@ function gfs_register_customizer() {
 							'gfs_form_margin' => array(
 		                        'setting'    => array(
 									'default' => array(
-	                                'top'        	=> 0,
-		                            'bottom'    	=> 0,
-	                                'left'        	=> 0,
-		                            'right'        	=> 0
+		                                'top'        	=> 0,
+			                            'bottom'    	=> 0,
+		                                'left'        	=> 0,
+			                            'right'        	=> 0
 		                            ),
 	                            	'transport'    => 'postMessage'
 		                        ),
@@ -1051,11 +1051,11 @@ function gfs_register_customizer() {
 
 add_action( 'wp_head', 'gfs_output_styles', 1000 );
 function gfs_output_styles() {
-	$form_padding 		= IBCustomizer::get_mod('gfs_form_padding');
-	$form_margin 		= IBCustomizer::get_mod('gfs_form_margin');
-	$input_padding 		= IBCustomizer::get_mod('gfs_inputs_padding');
-	$input_border		= IBCustomizer::get_mod('gfs_input_border_width');
-	$button_padding 	= IBCustomizer::get_mod('gfs_button_padding');
+	$form_padding 		= IBCustomizer::get_mod('gfs_form_padding', true);
+	$form_margin 		= IBCustomizer::get_mod('gfs_form_margin', true);
+	$input_padding 		= IBCustomizer::get_mod('gfs_inputs_padding', true);
+	$input_border		= IBCustomizer::get_mod('gfs_input_border_width', true);
+	$button_padding 	= IBCustomizer::get_mod('gfs_button_padding', true);
 	 ?>
 	<style type="text/css">
 		div.gform_wrapper {
@@ -1093,7 +1093,7 @@ function gfs_output_styles() {
 			<?php if( $form_margin['right'] ) { ?>
 			margin-right: <?php echo $form_margin['right']; ?>px;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_form_border_width') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_form_border_width') >= 0 ) { ?>
 			border-width: <?php echo IBCustomizer::get_mod('gfs_form_border_width'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_border_color') ) { ?>
@@ -1281,7 +1281,7 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_error_field_input_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_error_field_input_border_color'); ?>;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_error_field_input_border_width') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_error_field_input_border_width') >= 0 ) { ?>
 			border-width: <?php echo IBCustomizer::get_mod('gfs_error_field_input_border_width'); ?>px;
 			<?php } ?>
 		}
