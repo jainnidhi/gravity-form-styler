@@ -14,12 +14,12 @@ textdomain: gfs
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) )
 {
-    exit;
+   exit;
 }
 
-define( 'GFS_DIR', WP_PLUGIN_DIR . '/gravityforms-styler' . '/' );
+define( 'GFS_DIR', plugin_dir_path( __FILE__ ) );
 
 if ( class_exists( 'GFForms' ) ) {
-	require_once GFS_DIR . '/includes/class-ib-customizer.php';
-	require_once GFS_DIR . '/includes/customizer.php';
+    require_once 'includes/class-ib-customizer.php';
+    require_once 'includes/customizer.php';
 }
