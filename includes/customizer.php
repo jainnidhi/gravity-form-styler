@@ -1199,7 +1199,9 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_form_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_form_border_color'); ?>;
 			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_form_border_width') > 0 ) { ?>
 			border-style: solid;
+			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_border_radius') ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_form_border_radius'); ?>px;
 			<?php } ?>
@@ -1261,8 +1263,8 @@ function gfs_output_styles() {
 
 		div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 		div.gform_wrapper textarea {
-			<?php if( IBCustomizer::get_mod('gfs_input_width') == 'yes' ) { ?>
-				width: 100%;
+			<?php if( IBCustomizer::get_mod('gfs_input_width') ) { ?>
+				width: <?php echo IBCustomizer::get_mod('gfs_input_width'); ?>;
 			<?php } ?>
 			text-align: <?php echo IBCustomizer::get_mod('gfs_input_alignment'); ?>;
 			<?php if( IBCustomizer::get_mod('gfs_input_color') ) { ?>
@@ -1299,7 +1301,9 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_input_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_input_border_color'); ?>;
 			<?php } ?>
+			<?php if( $input_border['top'] > 0 || $input_border['bottom'] > 0 || $input_border['left'] > 0 || $input_border['right'] > 0 ) { ?>
 			border-style: solid;
+			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_input_border_radius') ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_input_border_radius'); ?>px;
 			<?php } ?>
@@ -1316,8 +1320,8 @@ function gfs_output_styles() {
 		}
 		div.gform_wrapper .gform_footer input[type=submit],
 		div.gform_wrapper .gform_page_footer input[type=button] {
-			<?php if( IBCustomizer::get_mod('gfs_button_width') == 'yes' ) { ?>
-				width: 100%;
+			<?php if( IBCustomizer::get_mod('gfs_button_width') ) { ?>
+				width: <?php echo IBCustomizer::get_mod('gfs_button_width'); ?>;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_button_color'); ?>;
@@ -1343,7 +1347,9 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_button_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_button_border_color'); ?>;
 			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_border_width') > 0 ) { ?>
 			border-style: solid;
+			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_border_radius') ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_button_border_radius'); ?>px;
 			<?php } ?>
