@@ -10,7 +10,7 @@ function gfs_register_customizer() {
 				'sections'	=> array(
 					'gfs_form_style'	=> array(
 						'title'			=> __( 'Colors', 'gfs' ),
-						'description'	=> __( 'Customize forms text color, background color, add a background image or change the font-size.', 'gfs' ),
+						'description'	=> __( 'Customize forms text color, background color, add a background image.', 'gfs' ),
 						'fields'            => array(
 							'gfs_form_color' => array(
 		                        'setting'    => array(
@@ -338,7 +338,7 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the title', 'gfs' ),
+									'description'	=> __( 'Adds font size to the description', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -376,7 +376,7 @@ function gfs_register_customizer() {
 					),
 					'gfs_form_label_style'	=> array(
 						'title'	=> __( 'Labels', 'gfs' ),
-						'description'	=> __( 'Style the labels of a form by adding width, colors, border, padding and margins.', 'gfs' ),
+							'description'	=> __( 'Style the labels of a form by adding color and font size.', 'gfs' ),
 						'fields'	=> array(
 							'gfs_labels' => array(
 		                        'setting'    => array(
