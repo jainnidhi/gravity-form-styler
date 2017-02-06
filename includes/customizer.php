@@ -14,13 +14,12 @@ function gfs_register_customizer() {
 						'fields'            => array(
 							'gfs_form_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Text Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -30,13 +29,12 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_form_bg_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#ffffff',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Background Color', 'gfs'),
-									'default' 		=> '#ffffff',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -70,7 +68,6 @@ function gfs_register_customizer() {
 									'type'          => 'ib-slider',
 									'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the form', 'gfs' ),
 									'choices'            => array(
 										'min'                => 0,
 										'max'                => 100,
@@ -98,7 +95,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
 		                            'class' 		=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds padding to the form', 'gfs' ),
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -146,7 +142,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Margin (px)', 'gfs'),
 		                            'class' 		=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds margin to the form', 'gfs' ),
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -189,7 +184,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border width to the form', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -205,13 +199,12 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_form_border_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Border Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'			=> 'css',
@@ -221,14 +214,13 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_form_border_radius' => array(
 		                        'setting'    => array(
-		                            'default' => 0,
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border radius to the form', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -250,7 +242,7 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_title_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
@@ -273,7 +265,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the title', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -315,7 +306,7 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_description_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
@@ -338,7 +329,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the description', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -376,7 +366,7 @@ function gfs_register_customizer() {
 					),
 					'gfs_form_label_style'	=> array(
 						'title'	=> __( 'Labels', 'gfs' ),
-							'description'	=> __( 'Style the labels of a form by adding color and font size.', 'gfs' ),
+						'description'	=> __( 'Style the labels of a form by adding color and font size.', 'gfs' ),
 						'fields'	=> array(
 							'gfs_labels' => array(
 		                        'setting'    => array(
@@ -399,7 +389,7 @@ function gfs_register_customizer() {
 							),
 							'gfs_label_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
@@ -422,7 +412,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the  labels', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -444,13 +433,12 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_section_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Text Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -468,7 +456,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the  section title', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -491,7 +478,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border width to the section title', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -507,13 +493,12 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_section_border_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#cccccc',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Border Color', 'gfs'),
-		                            'default' 		=> '#cccccc',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -529,15 +514,15 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_input_width'      => array(
                                 'setting'    => array(
-                                    'default' => 'no',
+                                    'default' => 'auto',
 									'transport'    => 'postMessage'
                                 ),
                                 'control'    => array(
                                     'type'              => 'radio',
                                         'label'             => __('Full Width?', 'gfs'),
                                     'choices'           => array(
-                                        'yes'          => __('Yes', 'gfs'),
-                                        'no'        => __('No', 'gfs')
+                                        '100%'          => __('Yes', 'gfs'),
+                                        'auto'        => __('No', 'gfs')
                                     ),
                                 ),
                             ),
@@ -548,7 +533,7 @@ function gfs_register_customizer() {
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'select',
-		                            'label'         => __('Alignment', 'gfs'),
+		                            'label'         => __('Text Alignment', 'gfs'),
 									'choices'		=> array(
 										'left'		=> __('Left', 'gfs'),
 										'center'		=> __('Center', 'gfs'),
@@ -563,13 +548,12 @@ function gfs_register_customizer() {
 							),
 							'gfs_input_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Text Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -579,13 +563,12 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_input_bg_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#ffffff',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Background Color', 'gfs'),
-		                            'default' 		=> '#ffffff',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -607,7 +590,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
 		                            'class' 		=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds padding to the input fields', 'gfs' ),
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -651,7 +633,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Margin (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds margin to the input fields', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -675,7 +656,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds font size to the input fields', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -703,7 +683,6 @@ function gfs_register_customizer() {
 									'type'          => 'ib-multitext',
 		                            'label'         => __('Border Width (px)', 'gfs'),
 		                            'class' 		=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border width to the input fields', 'gfs' ),
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -739,13 +718,12 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_input_border_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#eeeeee',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Border Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
@@ -755,7 +733,7 @@ function gfs_register_customizer() {
 		                    ),
 							'gfs_input_border_radius' => array(
 		                        'setting'    => array(
-		                            'default' => 0,
+		                            'default' => '',
 									'transport'    => 'postMessage',
 									'sanitize_callback' => 'gfs_sanitize_integer',
 		                        ),
@@ -763,7 +741,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border radius to the input fields', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -785,17 +762,22 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_button_width'      => array(
                                 'setting'    => array(
-                                    'default' => 'no',
+                                    'default' => 'auto',
 									'transport'    => 'postMessage'
                                 ),
                                 'control'    => array(
                                     'type'              => 'radio',
                                         'label'             => __('Full Width?', 'gfs'),
                                     'choices'           => array(
-                                        'yes'          	=> __('Yes', 'gfs'),
-                                        'no'        	=> __('No', 'gfs')
+                                        '100%'          	=> __('Yes', 'gfs'),
+                                        'auto'        	=> __('No', 'gfs')
                                     ),
                                 ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'property'		=> 'width'
+								)
                             ),
 							'gfs_button_alignment' => array(
 		                        'setting'    => array(
@@ -813,71 +795,67 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer',
+									'selector'      => 'div.gform_wrapper .gform_footer, div.gform_wrapper .gform_page_footer',
 									'property'		=> 'text-align'
 								)
 							),
 							'gfs_button_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#ffffff',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Text Color', 'gfs'),
-		                            'default' 		=> '#ffffff',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 									'property'		=> 'color',
 								)
 		                    ),
 							'gfs_button_bg_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Background Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 									'property'		=> 'background-color',
 								)
 		                    ),
 							'gfs_button_hover_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Text Hover Color', 'gfs'),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover',
 									'property'		=> 'color',
 								)
 		                    ),
 							'gfs_button_bg_hover_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#ffffff',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __('Background Hover Color', 'gfs'),
-		                            'default' 		=> '#ffffff',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover',
 									'property'		=> 'background-color',
 								)
 		                    ),
@@ -895,7 +873,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
 		                            'class' 		=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds padding to the button', 'gfs' ),
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -907,22 +884,22 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'rules'			=> array(
 										'top'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 											'property'		=> 'padding-top',
 											'unit'			=> 'px'
 										),
 										'bottom'	=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 											'property'		=> 'padding-bottom',
 											'unit'			=> 'px'
 										),
 										'left'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 											'property'		=> 'padding-left',
 											'unit'			=> 'px'
 										),
 										'right'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 											'property'		=> 'padding-right',
 											'unit'			=> 'px'
 										)
@@ -939,7 +916,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border width to the button', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -948,30 +924,29 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 									'property'		=> 'border-width',
 									'unit'			=> 'px'
 								)
 		                    ),
 							'gfs_button_border_color' => array(
 		                        'setting'    => array(
-		                            'default' => '#000000',
+		                            'default' => '',
 									'transport'    => 'postMessage'
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'color',
 		                            'label'         => __( 'Border Color', 'gfs' ),
-		                            'default' 		=> '#000000',
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 									'property'		=> 'border-color'
 								)
 		                    ),
 							'gfs_button_border_radius' => array(
 		                        'setting'    => array(
-		                            'default' => 0,
+		                            'default' => '',
 									'transport'    => 'postMessage',
 									'sanitize_callback' => 'gfs_sanitize_integer',
 		                        ),
@@ -979,7 +954,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border radius to the button', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -988,7 +962,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
 									'property'		=> 'border-radius',
 									'unit'			=> 'px'
 								)
@@ -1116,7 +1090,6 @@ function gfs_register_customizer() {
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Error Field Input Border Width', 'gfs'),
 									'class'			=> 'IBCustomizer_Control',
-									'description'	=> __( 'Adds border width to the error field input.', 'gfs' ),
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -1337,10 +1310,12 @@ function gfs_output_styles() {
 			<?php } ?>
 		}
 
-		div.gform_wrapper .gform_footer {
+		div.gform_wrapper .gform_footer,
+		div.gform_wrapper .gform_page_footer {
 			text-align: <?php echo IBCustomizer::get_mod('gfs_button_alignment'); ?>;
 		}
-		div.gform_wrapper .gform_footer input[type=submit] {
+		div.gform_wrapper .gform_footer input[type=submit],
+		div.gform_wrapper .gform_page_footer input[type=button] {
 			<?php if( IBCustomizer::get_mod('gfs_button_width') == 'yes' ) { ?>
 				width: 100%;
 			<?php } ?>
@@ -1374,7 +1349,8 @@ function gfs_output_styles() {
 			<?php } ?>
 		}
 
-		div.gform_wrapper .gform_footer input[type=submit]:hover {
+		div.gform_wrapper .gform_footer input[type=submit]:hover,
+		div.gform_wrapper .gform_page_footer input[type=button]:hover {
 			<?php if( IBCustomizer::get_mod('gfs_button_hover') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_button_hover'); ?>;
 			<?php } ?>
