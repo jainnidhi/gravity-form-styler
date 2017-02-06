@@ -541,6 +541,26 @@ function gfs_register_customizer() {
                                     ),
                                 ),
                             ),
+							'gfs_input_alignment' => array(
+		                        'setting'    => array(
+		                            'default' => 'left',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Alignment', 'gfs'),
+									'choices'		=> array(
+										'left'		=> __('Left', 'gfs'),
+										'center'		=> __('Center', 'gfs'),
+										'right'		=> __('Right', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper li.gfield_error textarea',
+									'property'		=> 'text-align'
+								)
+							),
 							'gfs_input_color' => array(
 		                        'setting'    => array(
 		                            'default' => '#000000',
@@ -777,6 +797,26 @@ function gfs_register_customizer() {
                                     ),
                                 ),
                             ),
+							'gfs_button_alignment' => array(
+		                        'setting'    => array(
+		                            'default' => 'left',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Alignment', 'gfs'),
+									'choices'		=> array(
+										'left'		=> __('Left', 'gfs'),
+										'center'		=> __('Center', 'gfs'),
+										'right'		=> __('Right', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gform_footer',
+									'property'		=> 'text-align'
+								)
+							),
 							'gfs_button_color' => array(
 		                        'setting'    => array(
 		                            'default' => '#ffffff',
@@ -1251,6 +1291,7 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_input_width') == 'yes' ) { ?>
 				width: 100%;
 			<?php } ?>
+			text-align: <?php echo IBCustomizer::get_mod('gfs_input_alignment'); ?>;
 			<?php if( IBCustomizer::get_mod('gfs_input_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_input_color'); ?>;
 			<?php } ?>
@@ -1294,6 +1335,10 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_input_margin') ) { ?>
 			margin-bottom: <?php echo IBCustomizer::get_mod('gfs_input_margin'); ?>px;
 			<?php } ?>
+		}
+
+		div.gform_wrapper .gform_footer {
+			text-align: <?php echo IBCustomizer::get_mod('gfs_button_alignment'); ?>;
 		}
 		div.gform_wrapper .gform_footer input[type=submit] {
 			<?php if( IBCustomizer::get_mod('gfs_button_width') == 'yes' ) { ?>
