@@ -60,7 +60,7 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_form_font_size' => array(
 								'setting'    => array(
-									'default' => 16,
+									'default' => '',
 									'sanitize_callback' => 'gfs_sanitize_integer',
 									'transport'    => 'postMessage'
 								),
@@ -799,6 +799,29 @@ function gfs_register_customizer() {
 									'property'		=> 'text-align'
 								)
 							),
+							'gfs_button_font_size' => array(
+								'setting'    => array(
+									'default' => '',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+									'transport'    => 'postMessage'
+								),
+								'control'    => array(
+									'type'          => 'ib-slider',
+									'label'         => __('Font Size (px)', 'gfs'),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+										'min'                => 0,
+										'max'                => 100,
+										'step'                 => 1
+									),
+								),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'property'		=> 'font-size',
+									'unit'			=> 'px'
+								)
+							),
 							'gfs_button_color' => array(
 		                        'setting'    => array(
 		                            'default' => '',
@@ -1325,6 +1348,9 @@ function gfs_output_styles() {
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_button_color'); ?>;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_font_size') ) { ?>
+			font-size: <?php echo IBCustomizer::get_mod('gfs_button_font_size'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_bg_color') ) { ?>
 			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_color'); ?>;
