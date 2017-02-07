@@ -611,6 +611,21 @@ function gfs_register_customizer() {
 									'property'		=> 'color',
 								)
 		                    ),
+							'gfs_input_focus_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Focus Border Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, div.gform_wrapper .gfield select:focus, div.gform_wrapper .gfield textarea:focus',
+									'property'		=> 'color',
+								)
+		                    ),
 							'gfs_inputs_padding' => array(
 		                        'setting'    => array(
 									'default' => array(
@@ -1460,6 +1475,14 @@ function gfs_output_styles() {
 		div.gform_wrapper .gfield select:-ms-input-placeholder {
 		    color: transparent;
 		    opacity: 0;
+		}
+		<?php } ?>
+
+		<?php if( IBCustomizer::get_mod('gfs_input_focus_color') ) { ?>
+		div.gform_wrapper .gfield input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']):focus,
+		div.gform_wrapper .gfield select:focus,
+		div.gform_wrapper .gfield textarea:focus {
+		    border-color: <?php echo IBCustomizer::get_mod('gfs_input_focus_color'); ?>;
 		}
 		<?php } ?>
 
