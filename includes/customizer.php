@@ -775,8 +775,11 @@ function gfs_register_customizer() {
                                 ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'width'
+								),
+								'toggle'		=> array(
+									'auto'	=> array( 'gfs_button_alignment' )
 								)
                             ),
 							'gfs_button_alignment' => array(
@@ -817,7 +820,7 @@ function gfs_register_customizer() {
 								),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'font-size',
 									'unit'			=> 'px'
 								)
@@ -833,7 +836,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'color',
 								)
 		                    ),
@@ -848,7 +851,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'background-color',
 								)
 		                    ),
@@ -863,7 +866,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover, div.gform_wrapper .gform_page_footer input[type=submit]:hover',
 									'property'		=> 'color',
 								)
 		                    ),
@@ -878,7 +881,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit]:hover, div.gform_wrapper .gform_page_footer input[type=button]:hover, div.gform_wrapper .gform_page_footer input[type=submit]:hover',
 									'property'		=> 'background-color',
 								)
 		                    ),
@@ -907,22 +910,22 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'rules'			=> array(
 										'top'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 											'property'		=> 'padding-top',
 											'unit'			=> 'px'
 										),
 										'bottom'	=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 											'property'		=> 'padding-bottom',
 											'unit'			=> 'px'
 										),
 										'left'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 											'property'		=> 'padding-left',
 											'unit'			=> 'px'
 										),
 										'right'		=> array(
-											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+											'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 											'property'		=> 'padding-right',
 											'unit'			=> 'px'
 										)
@@ -947,7 +950,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'border-width',
 									'unit'			=> 'px'
 								)
@@ -963,7 +966,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'border-color'
 								)
 		                    ),
@@ -985,7 +988,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button]',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
 									'property'		=> 'border-radius',
 									'unit'			=> 'px'
 								)
@@ -1342,9 +1345,13 @@ function gfs_output_styles() {
 			text-align: <?php echo IBCustomizer::get_mod('gfs_button_alignment'); ?>;
 		}
 		div.gform_wrapper .gform_footer input[type=submit],
-		div.gform_wrapper .gform_page_footer input[type=button] {
+		div.gform_wrapper .gform_page_footer input[type=button],
+		div.gform_wrapper .gform_page_footer input[type=submit] {
 			<?php if( IBCustomizer::get_mod('gfs_button_width') ) { ?>
 				width: <?php echo IBCustomizer::get_mod('gfs_button_width'); ?>;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_width') == '100%' ) { ?>
+				margin-bottom: 5px !important;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_button_color'); ?>;
@@ -1381,8 +1388,15 @@ function gfs_output_styles() {
 			<?php } ?>
 		}
 
+		div.gform_wrapper .gform_footer input[type=submit]:last-child,
+		div.gform_wrapper .gform_page_footer input[type=button]:last-child,
+		div.gform_wrapper .gform_page_footer input[type=submit]:last-child {
+			margin-bottom: 0 !important;
+		}
+
 		div.gform_wrapper .gform_footer input[type=submit]:hover,
-		div.gform_wrapper .gform_page_footer input[type=button]:hover {
+		div.gform_wrapper .gform_page_footer input[type=button]:hover,
+		div.gform_wrapper .gform_page_footer input[type=submit]:hover {
 			<?php if( IBCustomizer::get_mod('gfs_button_hover') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_button_hover'); ?>;
 			<?php } ?>
