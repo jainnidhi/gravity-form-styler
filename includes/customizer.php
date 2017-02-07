@@ -385,6 +385,9 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'selector'      => 'div.gform_wrapper .top_label .gfield_label',
 									'property'		=> 'display'
+								),
+								'toggle'		=> array(
+									'block'	=> array( 'gfs_label_color', 'gfs_label_font_size' )
 								)
 							),
 							'gfs_label_color' => array(
@@ -542,7 +545,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'text-align'
 								)
 							),
@@ -557,7 +560,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'color',
 								)
 		                    ),
@@ -572,8 +575,40 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'background-color',
+								)
+		                    ),
+							'gfs_input_placeholder'      => array(
+                                'setting'    => array(
+                                    'default' => 'no',
+									'transport'    => 'postMessage'
+                                ),
+                                'control'    => array(
+                                    'type'              => 'select',
+                                        'label'             => __('Hide Placeholder?', 'gfs'),
+                                    'choices'           => array(
+                                        'yes'          => __('Yes', 'gfs'),
+                                        'no'        => __('No', 'gfs')
+                                    ),
+                                ),
+								'toggle'		=> array(
+									'no'	=> array( 'gfs_input_placeholder_color' )
+								)
+                            ),
+							'gfs_input_placeholder_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Placeholder Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
+									'property'		=> 'color',
 								)
 		                    ),
 							'gfs_inputs_padding' => array(
@@ -601,22 +636,22 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'rules'			=> array(
 										'top'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'padding-top',
 											'unit'			=> 'px'
 										),
 										'bottom'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'padding-bottom',
 											'unit'			=> 'px'
 										),
 										'left'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'padding-left',
 											'unit'			=> 'px'
 										),
 										'right'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'padding-right',
 											'unit'			=> 'px'
 										)
@@ -664,7 +699,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'font-size',
 									'unit'			=> 'px'
 								)
@@ -694,22 +729,22 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'rules'			=> array(
 										'top'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'border-top-width',
 											'unit'			=> 'px'
 										),
 										'bottom'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'border-bottom-width',
 											'unit'			=> 'px'
 										),
 										'left'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'border-left-width',
 											'unit'			=> 'px'
 										),
 										'right'		=> array(
-											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+											'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 											'property'		=> 'border-right-width',
 											'unit'			=> 'px'
 										)
@@ -727,7 +762,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'border-color',
 								)
 		                    ),
@@ -749,7 +784,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'border-radius',
 									'unit'			=> 'px'
 								)
@@ -1288,11 +1323,14 @@ function gfs_output_styles() {
 		}
 
 		div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+		div.gform_wrapper select,
 		div.gform_wrapper textarea {
 			<?php if( IBCustomizer::get_mod('gfs_input_width') ) { ?>
 				width: <?php echo IBCustomizer::get_mod('gfs_input_width'); ?>;
 			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_input_alignment') ) { ?>
 			text-align: <?php echo IBCustomizer::get_mod('gfs_input_alignment'); ?>;
+			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_input_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_input_color'); ?>;
 			<?php } ?>
@@ -1334,6 +1372,97 @@ function gfs_output_styles() {
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_input_border_radius'); ?>px;
 			<?php } ?>
 		}
+
+		<?php if( IBCustomizer::get_mod('gfs_input_placeholder') == 'no' && IBCustomizer::get_mod('gfs_input_placeholder_color') ) { ?>
+		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::-webkit-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):-ms-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield textarea::-webkit-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield textarea:-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield textarea::-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield textarea:-ms-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield select::-webkit-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield select:-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield select::-moz-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		div.gform_wrapper .gfield select:-ms-input-placeholder {
+		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
+		}
+		<?php } ?>
+
+		<?php if( IBCustomizer::get_mod('gfs_input_placeholder') == 'yes' ) { ?>
+		div.gform_wrapper .gfield input::-webkit-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield input:-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield input::-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield input:-ms-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield textarea::-webkit-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield textarea:-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield textarea::-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield textarea:-ms-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield select::-webkit-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield select:-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield select::-moz-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		div.gform_wrapper .gfield select:-ms-input-placeholder {
+		    color: transparent;
+		    opacity: 0;
+		}
+		<?php } ?>
+
 		div.gform_wrapper ul.gform_fields li.gfield {
 			<?php if( IBCustomizer::get_mod('gfs_input_margin') ) { ?>
 			margin-bottom: <?php echo IBCustomizer::get_mod('gfs_input_margin'); ?>px;
