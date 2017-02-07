@@ -542,7 +542,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper li.gfield_error textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
 									'property'		=> 'text-align'
 								)
 							),
@@ -557,7 +557,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper li.gfield_error textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
 									'property'		=> 'color',
 								)
 		                    ),
@@ -572,7 +572,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper li.gfield_error textarea',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper textarea',
 									'property'		=> 'background-color',
 								)
 		                    ),
@@ -1015,7 +1015,7 @@ function gfs_register_customizer() {
 									'property'		=> 'display'
 								),
 								'toggle'		=> array(
-									'no'	=> array( 'gfs_error_description_color' )
+									'block'	=> array( 'gfs_error_description_color' )
 								)
 							),
 							'gfs_error_description_color' => array(
@@ -1140,7 +1140,7 @@ function gfs_register_customizer() {
 									),
 		                        ),
 								'toggle'		=> array(
-									'no'	=> array( 'gfs_error_field_message_color' )
+									'block'	=> array( 'gfs_error_field_message_color' )
 								),
 								'preview'		=> array(
 									'type'		=> 'css',
