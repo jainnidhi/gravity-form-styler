@@ -563,7 +563,7 @@ class IBCustomizer {
 
 		$value = get_theme_mod( $setting_key );
 
-        if ( $multitext ) {
+        if ( $multitext && !is_array($value) ) {
             $value = json_decode( $value, true );
         }
 
