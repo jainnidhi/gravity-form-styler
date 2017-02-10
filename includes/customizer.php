@@ -58,29 +58,6 @@ function gfs_register_customizer() {
 					'gfs_form_padding_margin'	=> array(
 						'title'	=> __( 'Structure', 'gfs' ),
 						'fields'	=> array(
-							'gfs_form_font_size' => array(
-								'setting'    => array(
-									'default' => '',
-									'sanitize_callback' => 'gfs_sanitize_integer',
-									'transport'    => 'postMessage'
-								),
-								'control'    => array(
-									'type'          => 'ib-slider',
-									'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
-									'choices'            => array(
-										'min'                => 0,
-										'max'                => 100,
-										'step'                 => 1
-									),
-								),
-								'preview'       => array(
-									'type'          => 'css',
-									'selector'      => '.gform_wrapper',
-									'property'		=> 'font-size',
-									'unit'			=> 'px'
-								)
-							),
 							'gfs_form_padding' => array(
 		                        'setting'    => array(
 									'default' => array(
@@ -1241,9 +1218,6 @@ function gfs_output_styles() {
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod( 'gfs_form_color' ); ?>;
-			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_form_font_size') ) { ?>
-			font-size: <?php echo IBCustomizer::get_mod('gfs_form_font_size'); ?>px;
 			<?php } ?>
 			<?php if( $form_padding['top'] ) { ?>
 			padding-top: <?php echo $form_padding['top']; ?>px;
