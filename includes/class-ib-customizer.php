@@ -168,6 +168,7 @@ class IBCustomizer {
             height: 5px;
             width: calc(100% - 74px);
             padding: 0;
+			border-radius: 10px;
         }
         .customize-control-ib-slider .ib-range-input:hover {
             background-color: rgba(0,0,0,.25);
@@ -182,21 +183,21 @@ class IBCustomizer {
         	height: 15px;
         	border-radius: 50%;
         	-webkit-border-radius: 50%;
-        	background-color: #3498D9;
+        	background-color: #008ec2;
         }
         .customize-control-ib-slider .ib-range-input::-moz-range-thumb {
         	width: 15px;
         	height: 15px;
         	border: none;
         	border-radius: 50%;
-        	background-color: #3498D9;
+        	background-color: #008ec2;
         }
         .customize-control-ib-slider .ib-range-input::-ms-thumb {
         	width: 15px;
         	height: 15px;
         	border-radius: 50%;
         	border: 0;
-        	background-color: #3498D9;
+        	background-color: #008ec2;
         }
         .customize-control-ib-slider .ib-range-input::-moz-range-track {
         	border: inherit;

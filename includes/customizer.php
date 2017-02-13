@@ -295,6 +295,29 @@ function gfs_register_customizer() {
 									'property'		=> 'text-transform'
 								)
 							),
+							'gfs_title_letter_spacing' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __('Letter Spacing (px)', 'gfs'),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+		                                'min'                => -10,
+		                                'max'                => 10,
+		                                'step'                 => 1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper h3.gform_title',
+									'property'		=> 'letter-spacing',
+									'unit'			=> 'px'
+								)
+		                    ),
 						)
 					),
 					'gfs_form_description_style'	=> array(
@@ -445,6 +468,29 @@ function gfs_register_customizer() {
 									'property'		=> 'text-transform'
 								)
 							),
+							'gfs_label_letter_spacing' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __('Letter Spacing (px)', 'gfs'),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+		                                'min'                => -10,
+		                                'max'                => 10,
+		                                'step'                 => 1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .top_label .gfield_label',
+									'property'		=> 'letter-spacing',
+									'unit'			=> 'px'
+								)
+		                    ),
 						)
 					),
 					'gfs_form_section_style'	=> array(
@@ -969,6 +1015,29 @@ function gfs_register_customizer() {
 									'property'		=> 'text-transform'
 								)
 							),
+							'gfs_button_letter_spacing' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __('Letter Spacing (px)', 'gfs'),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+		                                'min'                => -10,
+		                                'max'                => 10,
+		                                'step'                 => 1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
+									'property'		=> 'letter-spacing',
+									'unit'			=> 'px'
+								)
+		                    ),
 							'gfs_button_font_size' => array(
 								'setting'    => array(
 									'default' => '',
@@ -1408,7 +1477,10 @@ function gfs_output_styles() {
 			text-align: <?php echo IBCustomizer::get_mod('gfs_title_alignment'); ?>;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_title_text_transform') ) { ?>
-			text-transform: <?php echo IBCustomizer::get_mod('gfs_title_text_transform'); ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_title_text_transform'); ?>;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_title_letter_spacing') ) { ?>
+			letter-spacing: <?php echo IBCustomizer::get_mod('gfs_title_letter_spacing'); ?>px !important;
 			<?php } ?>
 		}
 
@@ -1435,7 +1507,10 @@ function gfs_output_styles() {
 			font-size: <?php echo IBCustomizer::get_mod('gfs_label_font_size'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_label_text_transform') ) { ?>
-			text-transform: <?php echo IBCustomizer::get_mod('gfs_label_text_transform'); ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_label_text_transform'); ?>;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_label_letter_spacing') ) { ?>
+			letter-spacing: <?php echo IBCustomizer::get_mod('gfs_label_letter_spacing'); ?>px;
 			<?php } ?>
 		}
 
@@ -1460,7 +1535,7 @@ function gfs_output_styles() {
 		div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 		div.gform_wrapper select,
 		div.gform_wrapper textarea {
-			<?php if( IBCustomizer::get_mod('gfs_input_width') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_input_width') == '100%' ) { ?>
 				width: <?php echo IBCustomizer::get_mod('gfs_input_width'); ?>;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_input_alignment') ) { ?>
@@ -1506,6 +1581,10 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_input_border_radius') ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_input_border_radius'); ?>px;
 			<?php } ?>
+		}
+
+		div.gform_wrapper .ginput_complex input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=image]):not([type=file]) {
+		    width: 100%;
 		}
 
 		<?php if( IBCustomizer::get_mod('gfs_input_placeholder') == 'no' && IBCustomizer::get_mod('gfs_input_placeholder_color') ) { ?>
@@ -1644,7 +1723,10 @@ function gfs_output_styles() {
 			font-size: <?php echo IBCustomizer::get_mod('gfs_button_font_size'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_text_transform') ) { ?>
-			text-transform: <?php echo IBCustomizer::get_mod('gfs_button_text_transform'); ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_button_text_transform'); ?>;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_letter_spacing') ) { ?>
+			letter-spacing: <?php echo IBCustomizer::get_mod('gfs_button_letter_spacing'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_bg_color') ) { ?>
 			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_color'); ?>;
