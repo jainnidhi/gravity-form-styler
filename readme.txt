@@ -7,7 +7,7 @@ Stable tag: trunk
 License: GPL2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Gravity Forms Styler provides Gravity Forms style options in customizer.
+Gravity Forms Styler provides Gravity Forms styling options in customizer.
 
 == Description ==
 
@@ -24,9 +24,9 @@ Now you can style the gravity form according to yourself.
 
 == Screenshots ==
 
-1. Gravity Forms Styler in customizer.
+1. Gravity Forms Styling options in customizer.
 
 == Changelog ==
 
-= 1.0.0 - January 3, 2017 =
+= 1.0.0 - January 13, 2017 =
 *   Initial Release
