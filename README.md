@@ -17,5 +17,5 @@ Now you can style the gravity form according to yourself.
 
 ### Changelog ###
 
-#### 1.0.0 - January 3, 2017 ####
+#### 1.0.0 - January 13, 2017 ####
 *   Initial Release

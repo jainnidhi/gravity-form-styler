@@ -1424,6 +1424,8 @@ function gfs_output_styles() {
 			background-color: <?php echo (IBCustomizer::get_mod( 'gfs_form_bg_color' )) ? IBCustomizer::get_mod( 'gfs_form_bg_color' ) : 'transparent' ; ?>;
 			<?php if( IBCustomizer::get_mod('gfs_form_bg_image') ) { ?>
 			background-image: url(<?php echo IBCustomizer::get_mod('gfs_form_bg_image'); ?>);
+			background-size: cover;
+			background-repeat: no-repeat;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod( 'gfs_form_color' ); ?>;
