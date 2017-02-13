@@ -1,17 +1,36 @@
 === Gravity Forms Styler ===
 Contributors: ideaboxcreations, jainnidhi
-Tags: gravity forms, form, style, gforms, gravity
+Tags: gravity forms, form, style, gforms, gravity, forms, styling, customizer, live preview, responsive forms
 Requires at least: 3.6
 Tested up to: 4.7
 Stable tag: trunk
 License: GPL2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Gravity Forms Styler provides Gravity Forms styling options in customizer.
+Gravity Forms Styler is an addon for Gravity Form plugin to help you customize the form styling with Live Preview.
 
 == Description ==
 
-Now you can style the gravity form according to yourself.
+Styling Gravity Forms has never been so easy!
+Get complete control of styling with various options and live preview as you make changes.
+
+> **Requirement**
+>
+> This plugin requires Gravity Forms Plugin.
+> [**Get Gravity Forms.**](http://www.gravityforms.com/)
+> Gravity Forms is a premium drag and drop form builder plugin for WordPress.
+>
+
+###Getting started:
+
+Follow these 5 simple steps to build beautiful forms.
+
+* Step #1: → Install/Activate Gravity Forms plugin.[**Get Gravity Forms.**](http://www.gravityforms.com/).
+* Step #2: → Create New Form and Publish it.
+* Step #3: → Edit to the page where you want to embed the form and publish/update it.
+* Step #4: → Now, view this page and click the "Customize" link in the WordPress admin bar at the top of the page.
+* Step #5: → Find and open Gravity Forms Styler panel and customize your form. That's all!
+
 
 == Installation ==
 
@@ -20,7 +39,9 @@ Now you can style the gravity form according to yourself.
 2. Activate Gravity Forms Styler
 
 == Frequently Asked Questions ==
-*   What's the requirement for using Gravity Forms Styler? - You need Gravity Forms plugin installed and activated.
+*   What's the requirement for using Gravity Forms Styler? - You need [Gravity Forms](http://www.gravityforms.com/) plugin installed and activated.
+*   Can I build forms with this plugin? - No, you can not. This is an addon for Gravity Forms Plugin.
+*   Is it a good fit for a site where I have multiple Gravity Forms? - No. Once you customize the style, it will be applied to all the Gravity Forms on your site.
 
 == Screenshots ==
 
