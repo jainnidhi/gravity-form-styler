@@ -4,7 +4,7 @@ Gravity Forms Styler provides Gravity Forms styling options in customizer.
 ### Description ###
 Now you can style the gravity form according to yourself.
 
-![gravityforms styler](https://raw.githubusercontent.com/jainnidhi/graivty-form-styler/master/screenshot.png)
+![gravityforms styler](https://raw.githubusercontent.com/jainnidhi/gravity-form-styler/master/screenshot.png)
 
 ### Installation ###
 
