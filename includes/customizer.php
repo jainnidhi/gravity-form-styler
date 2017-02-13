@@ -1532,6 +1532,11 @@ function gfs_output_styles() {
 			<?php } ?>
 		}
 
+		div.gform_wrapper ul.gfield_radio li input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']) {
+		    width: auto;
+			display: inline-block;
+		}
+
 		div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 		div.gform_wrapper select,
 		div.gform_wrapper textarea {
