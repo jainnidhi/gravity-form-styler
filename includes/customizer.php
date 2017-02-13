@@ -275,6 +275,26 @@ function gfs_register_customizer() {
 									'property'		=> 'text-align'
 								)
 							),
+							'gfs_title_text_transform' => array(
+		                        'setting'    => array(
+		                            'default' => 'none',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Text Transform', 'gfs'),
+									'choices'		=> array(
+										'none'		=> __('None', 'gfs'),
+										'lowercase'		=> __('lowercase', 'gfs'),
+										'uppercase'		=> __('UPPERCASE', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper h3.gform_title',
+									'property'		=> 'text-transform'
+								)
+							),
 						)
 					),
 					'gfs_form_description_style'	=> array(
@@ -405,6 +425,26 @@ function gfs_register_customizer() {
 									'unit'			=> 'px'
 								)
 		                    ),
+							'gfs_label_text_transform' => array(
+		                        'setting'    => array(
+		                            'default' => 'none',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Text Transform', 'gfs'),
+									'choices'		=> array(
+										'none'		=> __('None', 'gfs'),
+										'lowercase'		=> __('lowercase', 'gfs'),
+										'uppercase'		=> __('UPPERCASE', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .top_label .gfield_label',
+									'property'		=> 'text-transform'
+								)
+							),
 						)
 					),
 					'gfs_form_section_style'	=> array(
@@ -556,53 +596,6 @@ function gfs_register_customizer() {
 									'property'		=> 'background-color',
 								)
 		                    ),
-							'gfs_input_placeholder'      => array(
-                                'setting'    => array(
-                                    'default' => 'no',
-									'transport'    => 'postMessage'
-                                ),
-                                'control'    => array(
-                                    'type'              => 'select',
-                                        'label'             => __('Hide Placeholder?', 'gfs'),
-                                    'choices'           => array(
-                                        'yes'          => __('Yes', 'gfs'),
-                                        'no'        => __('No', 'gfs')
-                                    ),
-                                ),
-								'toggle'		=> array(
-									'no'	=> array( 'gfs_input_placeholder_color' )
-								)
-                            ),
-							'gfs_input_placeholder_color' => array(
-		                        'setting'    => array(
-		                            'default' => '',
-									'transport'    => 'postMessage'
-		                        ),
-		                        'control'    => array(
-		                            'type'          => 'color',
-		                            'label'         => __('Placeholder Color', 'gfs'),
-		                        ),
-								'preview'       => array(
-									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
-									'property'		=> 'color',
-								)
-		                    ),
-							'gfs_input_focus_color' => array(
-		                        'setting'    => array(
-		                            'default' => '',
-									'transport'    => 'postMessage'
-		                        ),
-		                        'control'    => array(
-		                            'type'          => 'color',
-		                            'label'         => __('Focus Border Color', 'gfs'),
-		                        ),
-								'preview'       => array(
-									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, div.gform_wrapper .gfield select:focus, div.gform_wrapper .gfield textarea:focus',
-									'property'		=> 'color',
-								)
-		                    ),
 							'gfs_inputs_padding' => array(
 		                        'setting'    => array(
 									'default' => array(
@@ -708,13 +701,13 @@ function gfs_register_customizer() {
 		                        ),
 		                        'control'    => array(
 									'type'          => 'ib-multitext',
-		                            'label'         => __('Border Width (px)', 'gfs'),
+		                            'label'         => __( 'Border Width (px)', 'gfs' ),
 		                            'class' 		=> 'IBCustomizer_Control',
 									'choices'            => array(
-		                                'top'            => __('Top', 'gfs'),
-		                                'bottom'         => __('Bottom', 'gfs'),
-		                                'left'           => __('Left', 'gfs'),
-		                                'right'          => __('Right', 'gfs')
+		                                'top'            => __( 'Top', 'gfs' ),
+		                                'bottom'         => __( 'Bottom', 'gfs' ),
+		                                'left'           => __( 'Left', 'gfs' ),
+		                                'right'          => __( 'Right', 'gfs' )
 		                            ),
 		                        ),
 								'preview'       => array(
@@ -781,6 +774,133 @@ function gfs_register_customizer() {
 									'unit'			=> 'px'
 								)
 		                    ),
+							'gfs_input_focus_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Focus Border Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, div.gform_wrapper .gfield select:focus, div.gform_wrapper .gfield textarea:focus',
+									'property'		=> 'border-color',
+								)
+		                    ),
+							'gfs_input_placeholder_separator' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-line',
+									'class'			=> 'IBCustomizer_Control',
+		                            'label'         => '',
+		                        ),
+							),
+							'gfs_input_placeholder'      => array(
+                                'setting'    => array(
+                                    'default' => 'no',
+									'transport'    => 'postMessage'
+                                ),
+                                'control'    => array(
+                                    'type'              => 'select',
+                                        'label'             => __('Hide Placeholder?', 'gfs'),
+                                    'choices'           => array(
+                                        'yes'          => __('Yes', 'gfs'),
+                                        'no'        => __('No', 'gfs')
+                                    ),
+                                ),
+								'toggle'		=> array(
+									'no'	=> array( 'gfs_input_placeholder_color' )
+								)
+                            ),
+							'gfs_input_placeholder_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Placeholder Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
+									'property'		=> 'color',
+								)
+		                    ),
+							'gfs_input_description_separator' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-line',
+									'class'			=> 'IBCustomizer_Control',
+		                            'label'         => '',
+		                        ),
+							),
+							'gfs_input_desc_font_size' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __( 'Description Font Size (px)', 'gfs' ),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+		                                'min'                => 0,
+		                                'max'                => 100,
+		                                'step'                 => 1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield .gfield_description',
+									'property'		=> 'font-size',
+									'unit'			=> 'px'
+								)
+		                    ),
+							'gfs_input_desc_line_height' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage',
+									'sanitize_callback' => 'gfs_sanitize_integer',
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __( 'Description Line height', 'gfs' ),
+									'class'			=> 'IBCustomizer_Control',
+									'choices'            => array(
+		                                'min'                => 0,
+		                                'max'                => 3,
+		                                'step'                 => 0.1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield .gfield_description',
+									'property'		=> 'line-height',
+								)
+		                    ),
+							'gfs_input_desc_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Description Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield .gfield_description',
+									'property'		=> 'color',
+								)
+		                    ),
 						)
 					),
 					'gfs_form_button_style'	=> array(
@@ -827,6 +947,26 @@ function gfs_register_customizer() {
 									'type'          => 'css',
 									'selector'      => 'div.gform_wrapper .gform_footer, div.gform_wrapper .gform_page_footer',
 									'property'		=> 'text-align'
+								)
+							),
+							'gfs_button_text_transform' => array(
+		                        'setting'    => array(
+		                            'default' => 'none',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Text Transform', 'gfs'),
+									'choices'		=> array(
+										'none'		=> __('None', 'gfs'),
+										'lowercase'		=> __('lowercase', 'gfs'),
+										'uppercase'		=> __('UPPERCASE', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gform_footer input[type=submit], div.gform_wrapper .gform_page_footer input[type=button], div.gform_wrapper .gform_page_footer input[type=submit]',
+									'property'		=> 'text-transform'
 								)
 							),
 							'gfs_button_font_size' => array(
@@ -1267,6 +1407,9 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_title_alignment') ) { ?>
 			text-align: <?php echo IBCustomizer::get_mod('gfs_title_alignment'); ?>;
 			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_title_text_transform') ) { ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_title_text_transform'); ?>
+			<?php } ?>
 		}
 
 		div.gform_wrapper span.gform_description {
@@ -1290,6 +1433,9 @@ function gfs_output_styles() {
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_label_font_size') ) { ?>
 			font-size: <?php echo IBCustomizer::get_mod('gfs_label_font_size'); ?>px;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_label_text_transform') ) { ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_label_text_transform'); ?>
 			<?php } ?>
 		}
 
@@ -1460,6 +1606,18 @@ function gfs_output_styles() {
 		}
 		<?php } ?>
 
+		div.gform_wrapper .gfield .gfield_description {
+		    <?php if( IBCustomizer::get_mod('input_desc_font_size') ) { ?>
+		    font-size: <?php echo IBCustomizer::get_mod('input_desc_font_size'); ?>px;
+		    <?php } ?>
+		    <?php if( IBCustomizer::get_mod('input_desc_color') ) { ?>
+		    color: <?php echo IBCustomizer::get_mod('input_desc_color'); ?>;
+		    <?php } ?>
+		    <?php if( IBCustomizer::get_mod('input_desc_line_height') ) { ?>
+		    line-height: <?php echo IBCustomizer::get_mod('input_desc_line_height'); ?>;
+		    <?php } ?>
+		}
+
 		div.gform_wrapper ul.gform_fields li.gfield {
 			<?php if( IBCustomizer::get_mod('gfs_input_margin') ) { ?>
 			margin-bottom: <?php echo IBCustomizer::get_mod('gfs_input_margin'); ?>px;
@@ -1484,6 +1642,9 @@ function gfs_output_styles() {
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_font_size') ) { ?>
 			font-size: <?php echo IBCustomizer::get_mod('gfs_button_font_size'); ?>px;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_text_transform') ) { ?>
+			text-transform: <?php echo IBCustomizer::get_mod('gfs_button_text_transform'); ?>
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_bg_color') ) { ?>
 			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_color'); ?>;

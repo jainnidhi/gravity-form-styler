@@ -34,7 +34,7 @@ final class IBCustomizer_Control extends WP_Customize_Control {
 	{
 		switch($this->type) {
 
-			case 'line':
+			case 'ib-line':
 			$this->render_line();
 			break;
 
