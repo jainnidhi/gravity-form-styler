@@ -1,11 +1,13 @@
-	<?php
+<?php
+
+require_once GFS_DIR . 'includes/class-ib-customizer.php';
 
 add_action( 'after_setup_theme', 'gfs_register_customizer' );
 function gfs_register_customizer() {
 	IBCustomizer::add_panel(
 		array(
 			'gfs_style'	=> array(
-				'title'	=> __( 'Gravity Forms Styler', 'gfs' ),
+				'title'	=> __( 'Styler for Gravity Forms', 'gfs' ),
 				'priority'	=> 500,
 				'sections'	=> array(
 					'gfs_form_style'	=> array(
@@ -71,7 +73,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
-		                            'class' 		=> 'IBCustomizer_Control',
+		                            'class' 		=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -118,7 +120,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Margin (px)', 'gfs'),
-		                            'class' 		=> 'IBCustomizer_Control',
+		                            'class' 		=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -160,7 +162,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -197,7 +199,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -241,7 +243,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -304,7 +306,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Letter Spacing (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => -10,
 		                                'max'                => 10,
@@ -348,7 +350,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -434,7 +436,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -477,7 +479,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Letter Spacing (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => -10,
 		                                'max'                => 10,
@@ -521,7 +523,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -543,7 +545,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -655,7 +657,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
-		                            'class' 		=> 'IBCustomizer_Control',
+		                            'class' 		=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -698,7 +700,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Margin (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -721,7 +723,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -748,7 +750,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 									'type'          => 'ib-multitext',
 		                            'label'         => __( 'Border Width (px)', 'gfs' ),
-		                            'class' 		=> 'IBCustomizer_Control',
+		                            'class' 		=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'top'            => __( 'Top', 'gfs' ),
 		                                'bottom'         => __( 'Bottom', 'gfs' ),
@@ -806,7 +808,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -841,7 +843,7 @@ function gfs_register_customizer() {
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'ib-line',
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 		                            'label'         => '',
 		                        ),
 							),
@@ -883,7 +885,7 @@ function gfs_register_customizer() {
 		                        ),
 		                        'control'    => array(
 		                            'type'          => 'ib-line',
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 		                            'label'         => '',
 		                        ),
 							),
@@ -896,7 +898,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __( 'Description Font Size (px)', 'gfs' ),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -919,7 +921,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __( 'Description Line height', 'gfs' ),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 3,
@@ -1024,7 +1026,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Letter Spacing (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => -10,
 		                                'max'                => 10,
@@ -1047,7 +1049,7 @@ function gfs_register_customizer() {
 								'control'    => array(
 									'type'          => 'ib-slider',
 									'label'         => __('Font Size (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 										'min'                => 0,
 										'max'                => 100,
@@ -1134,7 +1136,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-multitext',
 		                            'label'         => __('Padding (px)', 'gfs'),
-		                            'class' 		=> 'IBCustomizer_Control',
+		                            'class' 		=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'top'            => __('Top', 'gfs'),
 		                                'bottom'         => __('Bottom', 'gfs'),
@@ -1177,7 +1179,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Width (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -1215,7 +1217,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Border Radius (px)', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,
@@ -1232,7 +1234,7 @@ function gfs_register_customizer() {
 						)
 					),
 					'gfs_form_errors_style'	=> array(
-						'title'			=> __( 'Errros', 'gfs' ),
+						'title'			=> __( 'Errors', 'gfs' ),
 						'description'	=> __( 'Customize the form errors with colors, border, even change the style of error fields.', 'gfs' ),
 						'fields'		=> array(
 							'gfs_error_validation' => array(
@@ -1351,7 +1353,7 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'type'          => 'ib-slider',
 		                            'label'         => __('Error Field Input Border Width', 'gfs'),
-									'class'			=> 'IBCustomizer_Control',
+									'class'			=> 'IBCustomizerControl',
 									'choices'            => array(
 		                                'min'                => 0,
 		                                'max'                => 100,

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Gravity Forms Styler
+Plugin Name: Styler for Gravity Forms
 Plugin URI: http://ideaboxcreations.com/
 Description: Provide Gravity Forms styling options in customizer.
 Version: 1.0.0
@@ -20,6 +20,5 @@ if ( ! defined( 'ABSPATH' ) )
 define( 'GFS_DIR', plugin_dir_path( __FILE__ ) );
 
 if ( class_exists( 'GFForms' ) ) {
-    require_once 'includes/class-ib-customizer.php';
     require_once 'includes/customizer.php';
 }

@@ -168,7 +168,7 @@ class IBCustomizer {
             height: 5px;
             width: calc(100% - 74px);
             padding: 0;
-			border-radius: 10px;
+            border-radius: 10px;
         }
         .customize-control-ib-slider .ib-range-input:hover {
             background-color: rgba(0,0,0,.25);
@@ -441,7 +441,7 @@ class IBCustomizer {
 
     static public function register( $customizer )
     {
-        require_once dirname( __FILE__ ) . '/class-ib-customizer-controls.php';
+        require_once GFS_DIR . 'includes/class-ib-customizer-controls.php';
 
         $panel_priority = 1;
 
@@ -478,7 +478,7 @@ class IBCustomizer {
 
             $section = array(
                 'title'    => $section_data['title'],
-                'priority' => $section_priority
+                'priority' => isset( $section_data['priority'] ) ? $section_data['priority'] : $section_priority
             );
 
             if ( !empty( $panel_key ) ) {
@@ -564,7 +564,7 @@ class IBCustomizer {
 
 		$value = get_theme_mod( $setting_key );
 
-        if ( $multitext && !is_array($value) ) {
+        if ( $multitext && !is_array( $value ) ) {
             $value = json_decode( $value, true );
         }
 
@@ -583,7 +583,7 @@ class IBCustomizer {
 	}
 
 	/**
-	 * Sanitize callback for Customizer number settings.
+	 * Sanitize callback for Customizer number field.
 	 *
 	 * @since 1.0.0
 	 * @return int
@@ -592,6 +592,17 @@ class IBCustomizer {
 	{
 		return is_numeric( $val ) ? $val : 0;
 	}
+
+    /**
+	 * Sanitize callback for Customizer email field.
+	 *
+	 * @since 1.0.0
+	 * @return int
+	 */
+    static public function sanitize_email( $val )
+    {
+        return filter_var( $val, FILTER_VALIDATE_EMAIL );
+    }
 
 }
 IBCustomizer::init();
