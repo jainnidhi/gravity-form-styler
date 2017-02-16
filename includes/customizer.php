@@ -388,7 +388,7 @@ function gfs_register_customizer() {
 					),
 					'gfs_form_label_style'	=> array(
 						'title'	=> __( 'Labels', 'gfs' ),
-						'description'	=> __( 'Style the labels of a form by adding color and font size.', 'gfs' ),
+						'description'	=> __( 'Style the labels of a form by adding color, font size, text transform and letter spacing.', 'gfs' ),
 						'fields'	=> array(
 							'gfs_labels' => array(
 		                        'setting'    => array(
@@ -409,7 +409,7 @@ function gfs_register_customizer() {
 									'property'		=> 'display'
 								),
 								'toggle'		=> array(
-									'block'	=> array( 'gfs_label_color', 'gfs_label_font_size' )
+									'block'	=> array( 'gfs_label_color', 'gfs_label_font_size', 'gfs_label_text_transform', 'gfs_label_letter_spacing' )
 								)
 							),
 							'gfs_label_color' => array(
@@ -804,6 +804,21 @@ function gfs_register_customizer() {
 									'property'		=> 'border-color',
 								)
 		                    ),
+							'gfs_input_focus_color' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Focus Border Color', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, div.gform_wrapper .gfield select:focus, div.gform_wrapper .gfield textarea:focus',
+									'property'		=> 'border-color',
+								)
+		                    ),
 							'gfs_input_border_radius' => array(
 		                        'setting'    => array(
 		                            'default' => '',
@@ -825,21 +840,6 @@ function gfs_register_customizer() {
 									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
 									'property'		=> 'border-radius',
 									'unit'			=> 'px'
-								)
-		                    ),
-							'gfs_input_focus_color' => array(
-		                        'setting'    => array(
-		                            'default' => '',
-									'transport'    => 'postMessage'
-		                        ),
-		                        'control'    => array(
-		                            'type'          => 'color',
-		                            'label'         => __('Focus Border Color', 'gfs'),
-		                        ),
-								'preview'       => array(
-									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus, div.gform_wrapper .gfield select:focus, div.gform_wrapper .gfield textarea:focus',
-									'property'		=> 'border-color',
 								)
 		                    ),
 							'gfs_input_placeholder_separator' => array(
@@ -880,7 +880,7 @@ function gfs_register_customizer() {
 		                        ),
 								'preview'       => array(
 									'type'          => 'css',
-									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
+									'selector'      => 'div.gform_wrapper .gfield input::-webkit-input-placeholder, div.gform_wrapper .gfield select::-webkit-input-placeholder, div.gform_wrapper .gfield textarea::-webkit-input-placeholder',
 									'property'		=> 'color',
 								)
 		                    ),
@@ -1505,7 +1505,7 @@ function gfs_output_styles() {
 
 		div.gform_wrapper .top_label .gfield_label {
 			<?php if( IBCustomizer::get_mod('gfs_labels') ) { ?>
-				display: <?php IBCustomizer::get_mod('gfs_labels'); ?>;
+				display: <?php echo IBCustomizer::get_mod('gfs_labels'); ?>;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_label_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod('gfs_label_color'); ?>;
@@ -1598,16 +1598,16 @@ function gfs_output_styles() {
 		}
 
 		<?php if( IBCustomizer::get_mod('gfs_input_placeholder') == 'no' && IBCustomizer::get_mod('gfs_input_placeholder_color') ) { ?>
-		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::-webkit-input-placeholder {
+		div.gform_wrapper .gfield input::-webkit-input-placeholder {
 		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
 		}
-		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):-moz-placeholder {
+		div.gform_wrapper .gfield input:-moz-placeholder {
 		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
 		}
-		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::-moz-placeholder {
+		div.gform_wrapper .gfield input::-moz-placeholder {
 		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
 		}
-		div.gform_wrapper .gfield input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):-ms-input-placeholder {
+		div.gform_wrapper .gfield input:-ms-input-placeholder {
 		    color: <?php echo IBCustomizer::get_mod('gfs_input_placeholder_color'); ?>;
 		}
 		div.gform_wrapper .gfield textarea::-webkit-input-placeholder {
@@ -1774,11 +1774,11 @@ function gfs_output_styles() {
 		div.gform_wrapper .gform_footer input[type=submit]:hover,
 		div.gform_wrapper .gform_page_footer input[type=button]:hover,
 		div.gform_wrapper .gform_page_footer input[type=submit]:hover {
-			<?php if( IBCustomizer::get_mod('gfs_button_hover') ) { ?>
-			color: <?php echo IBCustomizer::get_mod('gfs_button_hover'); ?>;
+			<?php if( IBCustomizer::get_mod('gfs_button_hover_color') ) { ?>
+			color: <?php echo IBCustomizer::get_mod('gfs_button_hover_color'); ?>;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_button_bg_hover') ) { ?>
-			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_hover'); ?>;
+			<?php if( IBCustomizer::get_mod('gfs_button_bg_hover_color') ) { ?>
+			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_hover_color'); ?>;
 			<?php } ?>
 		}
 
