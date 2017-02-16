@@ -45,7 +45,13 @@ Follow these 5 simple steps to build beautiful forms.
 
 == Screenshots ==
 
-1. Gravity Forms Styling options in customizer.
+1. Open customizer at gravity forms page and you will find a new menu called Styler for Gravity Forms
+2. Inside Styler for Gravity Forms panel there are nine sections for you to customize
+3. Colors Section
+4. Structure section
+5. Inputs section
+6. Button section
+7. Errors Section
 
 == Changelog ==
 
