@@ -25,7 +25,7 @@ Get complete control of styling with various options and live preview as you mak
 
 Follow these 5 simple steps to build beautiful forms.
 
-* Step #1: → Install/Activate Gravity Forms plugin.[**Get Gravity Forms.**](http://www.gravityforms.com/).
+* Step #1: → Install/Activate Gravity Forms plugin. [**Get Gravity Forms**](http://www.gravityforms.com/)
 * Step #2: → Create New Form and Publish it.
 * Step #3: → Edit to the page where you want to embed the form and publish/update it.
 * Step #4: → Now, view this page and click the "Customize" link in the WordPress admin bar at the top of the page.

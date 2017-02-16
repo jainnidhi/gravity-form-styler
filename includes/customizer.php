@@ -582,7 +582,7 @@ function gfs_register_customizer() {
 						'fields'	=> array(
 							'gfs_input_width'      => array(
                                 'setting'    => array(
-                                    'default' => 'auto',
+                                    'default' => 'no',
 									'transport'    => 'postMessage'
                                 ),
                                 'control'    => array(
@@ -590,9 +590,14 @@ function gfs_register_customizer() {
                                         'label'             => __('Full Width?', 'gfs'),
                                     'choices'           => array(
                                         '100%'          => __('Yes', 'gfs'),
-                                        'auto'        => __('No', 'gfs')
+                                        'no'        => __('No', 'gfs')
                                     ),
                                 ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), div.gform_wrapper select, div.gform_wrapper textarea',
+									'property'		=> 'width'
+								)
                             ),
 							'gfs_input_alignment' => array(
 		                        'setting'    => array(
@@ -1432,28 +1437,28 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_form_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod( 'gfs_form_color' ); ?>;
 			<?php } ?>
-			<?php if( $form_padding['top'] ) { ?>
+			<?php if( $form_padding['top'] >= 0 ) { ?>
 			padding-top: <?php echo $form_padding['top']; ?>px;
 			<?php } ?>
-			<?php if( $form_padding['bottom'] ) { ?>
+			<?php if( $form_padding['bottom'] >= 0 ) { ?>
 			padding-bottom: <?php echo $form_padding['bottom']; ?>px;
 			<?php } ?>
-			<?php if( $form_padding['left'] ) { ?>
+			<?php if( $form_padding['left'] >= 0 ) { ?>
 			padding-left: <?php echo $form_padding['left']; ?>px;
 			<?php } ?>
-			<?php if( $form_padding['right'] ) { ?>
+			<?php if( $form_padding['right'] >= 0 ) { ?>
 			padding-right: <?php echo $form_padding['right']; ?>px;
 			<?php } ?>
-			<?php if( $form_margin['top'] ) { ?>
+			<?php if( $form_margin['top'] >= 0 || $form_margin['top'] < 0 ) { ?>
 			margin-top: <?php echo $form_margin['top']; ?>px;
 			<?php } ?>
-			<?php if( $form_margin['bottom'] ) { ?>
+			<?php if( $form_margin['bottom'] >= 0 || $form_margin['bottom'] < 0 ) { ?>
 			margin-bottom: <?php echo $form_margin['bottom']; ?>px;
 			<?php } ?>
-			<?php if( $form_margin['left'] ) { ?>
+			<?php if( $form_margin['left'] >= 0 || $form_margin['left'] < 0 ) { ?>
 			margin-left: <?php echo $form_margin['left']; ?>px;
 			<?php } ?>
-			<?php if( $form_margin['right'] ) { ?>
+			<?php if( $form_margin['right'] >= 0 || $form_margin['right'] < 0 ) { ?>
 			margin-right: <?php echo $form_margin['right']; ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_border_width') >= 0 ) { ?>
@@ -1462,10 +1467,8 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_form_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_form_border_color'); ?>;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_form_border_width') > 0 ) { ?>
 			border-style: solid;
-			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_form_border_radius') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_form_border_radius') >= 0 ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_form_border_radius'); ?>px;
 			<?php } ?>
 		}
@@ -1519,7 +1522,7 @@ function gfs_output_styles() {
 		}
 
 		div.gform_wrapper .gsection {
-			<?php if( IBCustomizer::get_mod('gfs_section_border_width') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_section_border_width') >= 0 ) { ?>
 			border-bottom-width: <?php echo IBCustomizer::get_mod('gfs_section_border_width'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_section_border_color') ) { ?>
@@ -1537,7 +1540,7 @@ function gfs_output_styles() {
 		}
 
 		div.gform_wrapper ul.gfield_radio li input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']) {
-		    width: auto;
+		    width: auto !important;
 			display: inline-block;
 		}
 
@@ -1554,40 +1557,38 @@ function gfs_output_styles() {
 			color: <?php echo IBCustomizer::get_mod('gfs_input_color'); ?>;
 			<?php } ?>
 			background-color: <?php echo (IBCustomizer::get_mod('gfs_input_bg_color')) ? IBCustomizer::get_mod('gfs_input_bg_color') : 'transparent'; ?>;
-			<?php if( $input_padding['top'] ) { ?>
+			<?php if( $input_padding['top'] >= 0 ) { ?>
 			padding-top: <?php echo $input_padding['top']; ?>px;
 			<?php } ?>
-			<?php if( $input_padding['bottom'] ) { ?>
+			<?php if( $input_padding['bottom'] >= 0 ) { ?>
 			padding-bottom: <?php echo $input_padding['bottom']; ?>px;
 			<?php } ?>
-			<?php if( $input_padding['left'] ) {	 ?>
+			<?php if( $input_padding['left'] >= 0 ) {	 ?>
 			padding-left: <?php echo $input_padding['left']; ?>px;
 			<?php } ?>
-			<?php if( $input_padding['right'] ) { ?>
+			<?php if( $input_padding['right'] >= 0 ) { ?>
 			padding-right: <?php echo $input_padding['right']; ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_input_font_size') ) { ?>
 			font-size: <?php echo IBCustomizer::get_mod('gfs_input_font_size'); ?>px;
 			<?php } ?>
-			<?php if( $input_border['top'] ) { ?>
+			<?php if( $input_border['top'] >= 0 ) { ?>
 			border-top-width: <?php echo $input_border['top']; ?>px;
 			<?php } ?>
-			<?php if( $input_border['bottom'] ) { ?>
+			<?php if( $input_border['bottom'] >= 0 ) { ?>
 			border-bottom-width: <?php echo $input_border['bottom']; ?>px;
 			<?php } ?>
-			<?php if( $input_border['left'] ) { ?>
+			<?php if( $input_border['left'] >= 0 ) { ?>
 			border-left-width: <?php echo $input_border['left']; ?>px;
 			<?php } ?>
-			<?php if( $input_border['right'] ) { ?>
+			<?php if( $input_border['right'] >= 0 ) { ?>
 			border-right-width: <?php echo $input_border['right']; ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_input_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_input_border_color'); ?>;
 			<?php } ?>
-			<?php if( $input_border['top'] > 0 || $input_border['bottom'] > 0 || $input_border['left'] > 0 || $input_border['right'] > 0 ) { ?>
 			border-style: solid;
-			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_input_border_radius') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_input_border_radius') >= 0 ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_input_border_radius'); ?>px;
 			<?php } ?>
 		}
@@ -1707,7 +1708,7 @@ function gfs_output_styles() {
 		}
 
 		div.gform_wrapper ul.gform_fields li.gfield {
-			<?php if( IBCustomizer::get_mod('gfs_input_margin') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_input_margin') >= 0 ) { ?>
 			margin-bottom: <?php echo IBCustomizer::get_mod('gfs_input_margin'); ?>px;
 			<?php } ?>
 		}
@@ -1740,28 +1741,26 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_button_bg_color') ) { ?>
 			background-color: <?php echo IBCustomizer::get_mod('gfs_button_bg_color'); ?>;
 			<?php } ?>
-			<?php if( $button_padding['top'] ) { ?>
+			<?php if( $button_padding['top'] >= 0 ) { ?>
 			padding-top: <?php echo $button_padding['top']; ?>px;
 			<?php } ?>
-			<?php if( $button_padding['bottom'] ) { ?>
+			<?php if( $button_padding['bottom'] >= 0 ) { ?>
 			padding-bottom: <?php echo $button_padding['bottom']; ?>px;
 			<?php } ?>
-			<?php if( $button_padding['left'] ) { ?>
+			<?php if( $button_padding['left'] >= 0 ) { ?>
 			padding-left: <?php echo $button_padding['left']; ?>px;
 			<?php } ?>
-			<?php if( $button_padding['right'] ) { ?>
+			<?php if( $button_padding['right'] >= 0 ) { ?>
 			padding-right: <?php echo $button_padding['right']; ?>px;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_button_border_width') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_border_width') >= 0 ) { ?>
 			border-width: <?php echo IBCustomizer::get_mod('gfs_button_border_width'); ?>px;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_button_border_color') ) { ?>
 			border-color: <?php echo IBCustomizer::get_mod('gfs_button_border_color'); ?>;
 			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_button_border_width') > 0 ) { ?>
 			border-style: solid;
-			<?php } ?>
-			<?php if( IBCustomizer::get_mod('gfs_button_border_radius') ) { ?>
+			<?php if( IBCustomizer::get_mod('gfs_button_border_radius') >= 0 ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_button_border_radius'); ?>px;
 			<?php } ?>
 		}

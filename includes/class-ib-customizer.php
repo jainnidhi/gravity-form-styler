@@ -116,7 +116,11 @@ class IBCustomizer {
                                 ?>
                                 api( '<?php echo $option_key; ?>', function( value ) {
                                     value.bind( function( newval ) {
-                                        $( '<?php echo $option_data['preview']['selector']; ?>' ).css('<?php echo $option_data['preview']['property']; ?>', newval + '<?php echo isset( $option_data['preview']['unit'] ) ? $option_data['preview']['unit'] : ''; ?>' );
+										if( 'no' === newval ) {
+											$( '<?php echo $option_data['preview']['selector']; ?>' ).removeAttr('style');
+										} else {
+                                        	$( '<?php echo $option_data['preview']['selector']; ?>' ).css('<?php echo $option_data['preview']['property']; ?>', newval + '<?php echo isset( $option_data['preview']['unit'] ) ? $option_data['preview']['unit'] : ''; ?>' );
+										}
                                     } );
                                 } );
                                 <?php
