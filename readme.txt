@@ -1,6 +1,6 @@
 === Styler for Gravity Forms ===
 Contributors: ideaboxcreations, jainnidhi
-Tags: gravity forms, form, style, gforms, gravity, forms, styling, customizer, live preview, responsive forms
+Tags: gravity forms, form, gforms, gravity, styling, customizer, live preview, responsive forms, gravity form style, gravity form, gravity form css, gravity form templates
 Requires at least: 3.6
 Tested up to: 4.7.2
 Stable tag: trunk

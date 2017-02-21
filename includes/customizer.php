@@ -409,7 +409,7 @@ function gfs_register_customizer() {
 									'property'		=> 'display'
 								),
 								'toggle'		=> array(
-									'block'	=> array( 'gfs_label_color', 'gfs_label_font_size', 'gfs_label_text_transform', 'gfs_label_letter_spacing' )
+									'block'	=> array( 'gfs_label_color', 'gfs_label_font_size', 'gfs_label_text_transform', 'gfs_label_letter_spacing', 'gfs_label_alignment' )
 								)
 							),
 							'gfs_label_color' => array(
@@ -493,6 +493,26 @@ function gfs_register_customizer() {
 									'unit'			=> 'px'
 								)
 		                    ),
+							'gfs_label_alignment' => array(
+		                        'setting'    => array(
+		                            'default' => 'left',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Alignment', 'gfs'),
+									'choices'		=> array(
+										'left'		=> __('Left', 'gfs'),
+										'center'		=> __('Center', 'gfs'),
+										'right'		=> __('Right', 'gfs')
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper .top_label .gfield_label',
+									'property'		=> 'text-align'
+								)
+							),
 						)
 					),
 					'gfs_form_section_style'	=> array(
@@ -1518,6 +1538,9 @@ function gfs_output_styles() {
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_label_letter_spacing') ) { ?>
 			letter-spacing: <?php echo IBCustomizer::get_mod('gfs_label_letter_spacing'); ?>px;
+			<?php } ?>
+			<?php if( IBCustomizer::get_mod('gfs_label_alignment') ) { ?>
+			text-align: <?php echo IBCustomizer::get_mod('gfs_label_alignment'); ?>;
 			<?php } ?>
 		}
 
