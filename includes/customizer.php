@@ -52,8 +52,82 @@ function gfs_register_customizer() {
 		                        'control'    => array(
 		                            'class'          => 'WP_Customize_Image_Control',
 		                            'label'         => __('Background Image', 'gfs'),
-		                            'default' 		=> '',
 		                        )
+		                    ),
+							'gfs_form_bg_size' => array(
+		                        'setting'    => array(
+		                            'default' => 'cover',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Background Size', 'gfs'),
+									'choices'		=> array(
+										'cover'		=> __('Cover', 'gfs'),
+										'contain'		=> __('Contain', 'gfs'),
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper',
+									'property'		=> 'background-size'
+								)
+							),
+							'gfs_form_bg_repeat' => array(
+		                        'setting'    => array(
+		                            'default' => 'no-repeat',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'select',
+		                            'label'         => __('Background Repeat', 'gfs'),
+									'choices'		=> array(
+										'repeat-x'      => __('Repeat X', 'gfs'),
+			                            'repeat-y'      => __('Repeat Y', 'gfs'),
+			                            'no-repeat'     => __('No Repeat', 'gfs'),
+									),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => 'div.gform_wrapper',
+									'property'		=> 'background-repeat'
+								)
+							),
+							'gfs_form_bg_overlay' => array(
+		                        'setting'    => array(
+		                            'default' => '',
+									'transport'    => 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'color',
+		                            'label'         => __('Background Overlay', 'gfs'),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => '.gform_wrapper:before',
+									'property'      => 'background-color',
+								)
+		                    ),
+							'gfs_form_bg_opacity' => array(
+		                        'setting'    => array(
+		                            'default' 		=> 0.7,
+									'transport'    	=> 'postMessage'
+		                        ),
+		                        'control'    => array(
+		                            'type'          => 'ib-slider',
+		                            'label'         => __('Background Opacity', 'gfs'),
+									'class'			=> 'IBCustomizerControl',
+									'choices'            => array(
+		                                'min'                => 0,
+		                                'max'                => 1,
+		                                'step'                 => 0.1
+		                            ),
+		                        ),
+								'preview'       => array(
+									'type'          => 'css',
+									'selector'      => '.gform_wrapper:before',
+									'property'		=> 'opacity',
+								)
 		                    ),
 						)
 					),
@@ -1448,11 +1522,12 @@ function gfs_output_styles() {
 	 ?>
 	<style type="text/css">
 		div.gform_wrapper {
+			position: relative;
 			background-color: <?php echo (IBCustomizer::get_mod( 'gfs_form_bg_color' )) ? IBCustomizer::get_mod( 'gfs_form_bg_color' ) : 'transparent' ; ?>;
 			<?php if( IBCustomizer::get_mod('gfs_form_bg_image') ) { ?>
 			background-image: url(<?php echo IBCustomizer::get_mod('gfs_form_bg_image'); ?>);
-			background-size: cover;
-			background-repeat: no-repeat;
+			background-size: <?php echo IBCustomizer::get_mod('gfs_form_bg_size'); ?>;
+			background-repeat: <?php echo IBCustomizer::get_mod('gfs_form_bg_repeat'); ?>;
 			<?php } ?>
 			<?php if( IBCustomizer::get_mod('gfs_form_color') ) { ?>
 			color: <?php echo IBCustomizer::get_mod( 'gfs_form_color' ); ?>;
@@ -1491,6 +1566,23 @@ function gfs_output_styles() {
 			<?php if( IBCustomizer::get_mod('gfs_form_border_radius') >= 0 ) { ?>
 			border-radius: <?php echo IBCustomizer::get_mod('gfs_form_border_radius'); ?>px;
 			<?php } ?>
+		}
+
+		<?php if( IBCustomizer::get_mod('gfs_form_bg_image') ) { ?>
+		div.gform_wrapper:before {
+			content: "";
+			display: block;
+			position: absolute;;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: <?php echo ( IBCustomizer::get_mod('gfs_form_bg_overlay') ) ? gfs_hex2rgba( IBCustomizer::get_mod('gfs_form_bg_overlay'), IBCustomizer::get_mod('gfs_form_bg_opacity')) : 'transparent'; ?>;
+		}
+		<?php } ?>
+
+		div.gform_wrapper form {
+			position: relative;
 		}
 
 		div.gform_wrapper h3.gform_title {
@@ -1857,4 +1949,21 @@ function gfs_sanitize_integer( $input ) {
     if( is_numeric( $input ) ) {
         return intval( $input );
     }
+}
+
+function gfs_hex2rgba($hex, $opacity) {
+   $hex = str_replace("#", "", $hex);
+
+   if(strlen($hex) == 3) {
+      $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+      $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+      $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+   } else {
+      $r = hexdec(substr($hex,0,2));
+      $g = hexdec(substr($hex,2,2));
+      $b = hexdec(substr($hex,4,2));
+   }
+   $rgba = array($r, $g, $b, $opacity);
+   return 'rgba(' . implode(",", $rgba) . ')'; // returns the rgb values separated by commas
+   //return $rgb; // returns an array with the rgb values
 }
